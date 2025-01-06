@@ -37,5 +37,10 @@ void mouseDragged() {
 
 void draw() {
   pSystem.run();
-  saveFrame();
+}
+
+void keyPressed() {
+  if (key == 'f') {
+    saveFrame("Snapshots\\snapshot-######.png");
+  }
 }

@@ -19,13 +19,13 @@ public class Particle {
     
     this.sampleImage = sampleImage;
     
-    this.pos = new PVector(x, y);
-    this.oldPos = new PVector(x, y);
-    this.vel = new PVector(0, 0);
+    pos = new PVector(x, y);
+    oldPos = new PVector(x, y);
+    vel = new PVector(0, 0);
     
     // get color at particle position
-    int xInd = Math.round(this.pos.x) * pixelDensity;
-    int yInd = Math.round(this.pos.y) * pixelDensity;
+    int xInd = Math.round(pos.x) * pixelDensity;
+    int yInd = Math.round(pos.y) * pixelDensity;
     color c = color(sampleImage.getImage().get(xInd, yInd));
     clr = color(red(c), green(c), blue(c), OPACITY); // slightly transparent
    
@@ -33,14 +33,14 @@ public class Particle {
   
   private void update() {
     
-    this.oldPos.x = this.pos.x;
-    this.oldPos.y = this.pos.y;
+    oldPos.x = pos.x;
+    oldPos.y = pos.y;
     
     // update - get vector for this pixel
     // vector points in direction of the greatest increase in brightness
     
-    int xInd = (int)Math.floor(this.pos.x) * pixelDensity;
-    int yInd = (int)Math.floor(this.pos.y) * pixelDensity;
+    int xInd = (int)Math.floor(pos.x) * pixelDensity;
+    int yInd = (int)Math.floor(pos.y) * pixelDensity;
     
     float px = sampleImage.field[xInd][yInd][0];
     float py = sampleImage.field[xInd][yInd][1];
@@ -48,15 +48,15 @@ public class Particle {
     float m = sqrt(px * px + py * py);
     
     // trying
-    this.vel.x = VEL_MULTIPLIER*px/m + random(-1,1)*RAND_MULTIPLIER;
-    this.vel.y = VEL_MULTIPLIER*py/m + random(-1,1)*RAND_MULTIPLIER;
+    vel.x = VEL_MULTIPLIER*px/m + random(-1,1)*RAND_MULTIPLIER;
+    vel.y = VEL_MULTIPLIER*py/m + random(-1,1)*RAND_MULTIPLIER;
     
     // rotate gradient vector by 90 degrees
-    this.pos.x += -this.vel.y;
-    this.pos.y += this.vel.x;
+    pos.x += -vel.y;
+    pos.y += vel.x;
 
     // reduce lifespan
-    this.steps--;
+    steps--;
 
     
   }
@@ -66,13 +66,13 @@ public class Particle {
     stroke(clr);
     strokeWeight(STROKE_WEIGHT);
     
-    line(this.oldPos.x, this.oldPos.y, this.pos.x, this.pos.y);
+    line(oldPos.x, oldPos.y, pos.x, pos.y);
     
     
   }
   
   public boolean isAlive() {
-    return steps > 0 && this.pos.x >= 0 && this.pos.y >= 0 && this.pos.x < width && this.pos.y < height;
+    return steps > 0 && pos.x >= 0 && pos.y >= 0 && pos.x < width && pos.y < height;
   }
   
   // calls the update function

@@ -95,7 +95,6 @@ public class SampleImage {
   private class PixelRow implements Runnable {
     
     private int x;
-    private int y;
     private final float SCALAR = 0.2; // outline before particles are drawn
         
     public PixelRow(int x) {
