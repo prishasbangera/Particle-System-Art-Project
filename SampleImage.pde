@@ -11,9 +11,9 @@ public class SampleImage {
   };
   
   private final int[][] yKernel = {
-    {-1, -1, -1},
+    {-1, -2, -1},
     {0, 0, 0},
-    {1, 1, 1}
+    {1, 2, 1}
   };
   
   public SampleImage(String imagePath) {
