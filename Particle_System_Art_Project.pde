@@ -16,13 +16,14 @@ void setup() { //<>//
   // create the field from the image
   sampleImage.createField();
   
-  // particle system
+  // init particle system
   pSystem = new ParticleSystem(sampleImage);
   
   println("Ready to draw");
    
 }
 
+// add particles on mouse drag
 void mouseDragged() {
   
   int s = 2;
@@ -39,6 +40,7 @@ void draw() {
   pSystem.run();
 }
 
+// when f is pressed, save screen to Snapshots folder
 void keyPressed() {
   if (key == 'f') {
     saveFrame("Snapshots\\snapshot-######.png");

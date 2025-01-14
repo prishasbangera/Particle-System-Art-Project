@@ -1,9 +1,10 @@
 public class Particle {
   
+  // constants to play around with
   private final int VEL_MULTIPLIER = 3;
-  private final int RAND_MULTIPLIER = 0;
+  private final int RAND_MULTIPLIER = 1;
   private final int STROKE_WEIGHT = 2;
-  private final int OPACITY = 50;
+  private final int OPACITY = 20;
   
   private PVector pos;
   private PVector oldPos;
@@ -67,7 +68,6 @@ public class Particle {
     strokeWeight(STROKE_WEIGHT);
     
     line(oldPos.x, oldPos.y, pos.x, pos.y);
-    
     
   }
   
