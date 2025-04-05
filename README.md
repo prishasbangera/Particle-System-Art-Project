@@ -19,6 +19,11 @@ This causes the particles to revolve around bright spots in the image, and it's 
 
 [Original IG Post](https://www.instagram.com/p/C6nVyYeu1IF/?img_index=1)
 
+## History
+- Nov. 2023 - Created original in Processing.js on Khan Academy after watching my Calculus 3 lecture. :) [Link](https://www.khanacademy.org/computer-programming/combining-w-particle-systems/5653797028413440)
+- Summer 2024 - Rewrote in p5.js for an Nature of Code Error Page 404 entry. [Link](https://editor.p5js.org/emeraldblackbird/sketches/ayaheolVX)
+- January 2025 - (This project) Rewrote in Processing for an art installation entry, runs much faster in real time.
+
 
 
 
