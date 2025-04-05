@@ -1,46 +1,72 @@
+import javax.swing.JOptionPane;
+
 SampleImage sampleImage;
 ParticleSystem pSystem;
 
 final int PIXEL_DENSITY = 2;
 
-final String IMAGE_PATH = "pic2.png";
+String IMAGE_PATH = "";
+boolean started = false;
+int mouseBrush[] = {2, 2}; // number, spacing
+
+// Handle file input (source: Processing reference)
+
+void fileSelected(File selection) {
+  if (selection == null) {
+    println("Window was closed or the user hit cancel.");
+  } else {
+    IMAGE_PATH = selection.getAbsolutePath();
+    println("User selected " + selection.getAbsolutePath());
+    
+    sampleImage = new SampleImage(IMAGE_PATH);
+    sampleImage.getImage().resize(pixelWidth, pixelHeight);
+    
+    // create the field from the image
+    sampleImage.createField();
+    
+    // init particle system
+    pSystem = new ParticleSystem(sampleImage);
+    
+    println("Ready to draw");
+    started = true;
+  }
+}
 
 void setup() { //<>//
-
+  
   size(800, 800);
   pixelDensity(PIXEL_DENSITY);
   
-  sampleImage = new SampleImage(IMAGE_PATH);
-  sampleImage.getImage().resize(pixelWidth, pixelHeight);
+  JOptionPane.showMessageDialogue(null, "Please select an image");
+
+  selectInput("Select an image", "fileSelected");
   
-  // create the field from the image
-  sampleImage.createField();
-  
-  // init particle system
-  pSystem = new ParticleSystem(sampleImage);
-  
-  println("Ready to draw");
-   
 }
 
 // add particles on mouse drag
+
 void mouseDragged() {
   
-  int s = 2;
-  int m = 2;
-  for (int x = -s; x < s; x++) {
-    for (int y = -s; y < s; y++) {
-      pSystem.addParticle(mouseX + x * m, mouseY + y * m);
+  if (started) {
+    for (int x = -mouseBrush[0]; x < mouseBrush[0]; x++) {
+      for (int y = -mouseBrush[0]; y < mouseBrush[0]; y++) {
+        pSystem.addParticle(mouseX + x * mouseBrush[1], mouseY + y * mouseBrush[1]);
+      }
     }
   }
   
 }
 
+// RUN EACH FRAME
+
 void draw() {
-  pSystem.run();
+  if (started) {
+    pSystem.run();
+  }
 }
 
 // when f is pressed, save screen to Snapshots folder
+
 void keyPressed() {
   if (key == 'f') {
     saveFrame("Snapshots\\snapshot-######.png");

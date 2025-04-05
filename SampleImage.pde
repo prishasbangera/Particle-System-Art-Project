@@ -1,9 +1,12 @@
+import javax.swing.JOptionPane;
+
 public class SampleImage {
 
   private PImage image;
   public float[][][] field;
   
   // Sobel operator
+  
   private final int[][] xKernel = {
     {-1, 0, 1},
     {-2, 0, 2},
@@ -17,7 +20,11 @@ public class SampleImage {
   };
   
   public SampleImage(String imagePath) {
-    this.image = loadImage(imagePath);
+    try {
+      this.image = loadImage(imagePath);
+    } catch (Exception e) {
+      JOptionPane.showMessageDialogue(null, "File is not a valid image.");
+    }
     field = new float[pixelWidth][pixelHeight][2];
   }
   
