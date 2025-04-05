@@ -1,6 +1,7 @@
 # Particle System Image Art
 ### Steps
-- Executable at `app\Particle_System_Art_Project.exe`
+- Extract all contents in zip file.
+- Find executable at `app\Particle_System_Art_Project.exe`
 - Select an image
 - Wait for a bit
 - Drag mouse to spawn particles
