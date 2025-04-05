@@ -30,7 +30,7 @@ void fileSelected(File selection) {
   }
 }
 
-void setup() { //<>//
+void setup() {
   
   size(800, 800);
   pixelDensity(PIXEL_DENSITY);
