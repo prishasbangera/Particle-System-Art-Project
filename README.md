@@ -6,6 +6,10 @@
 - Drag mouse to spawn particles
 
 ## Snapshots
+Original Image  
+<img src="https://github.com/user-attachments/assets/554ef31c-d5d3-4c58-a2ac-630b1e42fa41" width="200" height="200">  
+Final Image  
+<img src="https://github.com/user-attachments/assets/d2e2ec5a-5ac5-4ead-92d3-48c02fc09001" width="200" height="200">
 
 ## How it Works
 The program estimates the "gradient" of the brightness at each pixel ([Sobel Operator - Wikipedia](https://en.wikipedia.org/wiki/Sobel_operator)) using the surrounding pixels.
