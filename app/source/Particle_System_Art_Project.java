@@ -345,7 +345,7 @@ public class SampleImage {
     
   }
   
-  public void createField() { //<>//
+  public void createField() {
     
     ArrayList<Thread> threads = new ArrayList<>();
     image.loadPixels();
